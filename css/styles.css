@@ -1,8 +1,43 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
-  background-image:url('https://steamuserimages-a.akamaihd.net/ugc/940590971984050160/8A63DA566A2DE7711201814F6043E0156031230F/?imw=637&imh=358&ima=fit&impolicy=Letterbox&imcolor=%23000000&letterbox=true');
-  background-size: 100vw 100vh;
+  background-image: url('../img/grid.gif');
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-position: center;
+  background-attachment: fixed;
+
   font-family: Arial;
   height: 100vh;
+  width: 100%;
+}
+
+header {
+  /* SUN
+  background-image: url('../sun.gif');
+  background-repeat: no-repeat;
+  background-position: bottom; */
+  /* GRID
+  background-image: url('../grid.gif');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center; */
+
+  display: flex;
+  height: 60vh;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.menu {
+  position: fixed;
+  top: 0;
+  height: 7%;
+  width: 100vw;
 }
 
 .menu ul {
@@ -14,6 +49,11 @@ body {
   list-style: none;
 }
 
+.menu a {
+  display: block;
+  padding: 12px 18px;
+}
+
 a {
   color: darkmagenta;
   text-decoration: none;
@@ -22,15 +62,62 @@ a {
 
 a:hover {
   text-decoration: underline;
-  color:  #720072;
+  color:  rgb(112, 0, 112);
 }
+
+.titles {
+  background-image: url('../img/triangulo2.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: 0 50px;
+  padding-top: 130px;
+} 
 
 .site-subtitle,
 .site-title {
-  color: darkviolet;
-  text-align: left;
+  color: #8f50ff;
+  text-align: center;
+}
+
+.site-title {
+  font-size: 2.5em;
+  margin-bottom: 20px;
 }
 
 .site-subtitle {
   font-style: italic;
+  font-size: 1.8em;
+  font-weight: normal;
+  color: #e200bd;
+}
+
+.portfolio {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.img-portfolio {
+  width: 250px;
+  height: 180px;
+  margin-bottom: 80px;
+  object-fit: cover;
+}
+
+figcaption {
+  font-size: 1.5em;
+  color: white;
+}
+
+@media (min-width: 640px) {
+
+  .portfolio {
+    flex-direction: row;
+  }
+
+  .img-portfolio {
+    margin: 0;
+  }
 }
