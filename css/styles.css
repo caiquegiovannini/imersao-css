@@ -68,8 +68,8 @@ a:hover {
 .titles {
   background-image: url('../img/triangulo2.png');
   background-repeat: no-repeat;
-  background-size: contain;
-  background-position: 0 50px;
+  background-size: 90%;
+  background-position: 20px 60px;
   padding-top: 130px;
 } 
 
@@ -112,6 +112,13 @@ figcaption {
 }
 
 @media (min-width: 640px) {
+  .titles {
+    background-image: url('../img/triangulo2.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: 0 50px;
+    padding-top: 130px;
+  } 
 
   .portfolio {
     flex-direction: row;
