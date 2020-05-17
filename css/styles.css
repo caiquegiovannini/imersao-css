@@ -17,17 +17,8 @@ body {
 }
 
 header {
-  /* SUN
-  background-image: url('../sun.gif');
-  background-repeat: no-repeat;
-  background-position: bottom; */
-  /* GRID
-  background-image: url('../grid.gif');
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center; */
-
   display: flex;
+  width: 100%;
   height: 60vh;
   justify-content: center;
   flex-wrap: wrap;
@@ -37,7 +28,7 @@ header {
   position: fixed;
   top: 0;
   height: 7%;
-  width: 100vw;
+  width: 100%;
 }
 
 .menu ul {
@@ -65,43 +56,77 @@ a:hover {
   color:  rgb(112, 0, 112);
 }
 
-.titles {
-  background-image: url('https://i.dlpng.com/static/png/5011382-hd-triangle-free-unlimited-download-2925511-sccprecat-purple-triangle-png-1139_1123_preview.png');
-  background-repeat: no-repeat;
-  background-size: 70%;
-  background-position: -1px 57px;
-  padding-top: 85px;
-  position: relative;
-} 
-
-.site-subtitle,
-.site-title1,
-.site-title2 {
-  color: #9e9e9e;
-  /* color: #6a2bdf; */
+.logo {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.site-title1,
-.site-title2 {
-  font-size: 2.5em;
+.logo::after {
+  content: '';
+  background-image: url('../img/tri.png');
+  background-repeat: no-repeat;
+  background-size: 18em;
+  background-position:  center;
+  width: 100%;
+  height: 100%;
+  margin-left: -9px;
+  position: absolute;
+  z-index: -1;
+}
 
-  font-family: 'Fugaz One', cursive;
-  text-transform: uppercase;
-  font-weight: normal;
-  line-height: 42px;
-  text-shadow: 0px 0px 5px rgb(0, 0, 0);
+@media (min-width: 375px) {
+  .logo::after {
+    margin-left: -38px;
+  }
+}
+
+.titles {
+  position: relative;
+}
+
+.title-img {
+  width: 25em;
+  max-width: 100%;
 }
 
 .site-subtitle {
   font-style: italic;
-  font-size: 1.6em;
+  font-size: 2em;
   font-weight: normal;
   font-family: 'Damion', cursive;
-  color: #ff00d4;
-  text-shadow: 0px 0px 8px rgb(255, 136, 156);
-  line-height: 10px;
-  right: -40px;
+  color: #111111;
+  text-shadow: none;
+  text-align: right;
   position: absolute;
+  bottom: -17px;
+  right: 17px;
+
+  animation: 1s piscaLuz ease-in 1s infinite forwards;
+  animation-iteration-count: 1;
+}
+
+@keyframes piscaLuz {
+  0% {
+    color: #111111;
+    text-shadow: none;
+  }
+
+  15% {
+    color: #ff00d4;
+    text-shadow: 0px 0px 8px rgb(255, 136, 156);
+  }
+
+  20% {
+    color: #111111;
+    text-shadow: none;
+  }
+
+  100% {
+    color: #ff00d4;
+    text-shadow: 0px 0px 8px rgb(255, 136, 156);
+  }
 }
 
 .portfolio {
@@ -128,12 +153,9 @@ figcaption {
     gap: 50px;
   }
 
+  .logo::after,
   .titles {
     font-size: 1.2em;
-  }
-
-  .site-subtitle {
-    right: -50px;
   }
 
   .img-portfolio {
