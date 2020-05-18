@@ -212,21 +212,95 @@ a {
   grid-template-columns: 1fr;
   text-align: center;
   padding-top: 70px;
+  justify-items: center;
 }
 
-.img-portfolio {
+.image {
+  position: relative;
   width: 250px;
   height: 180px;
   margin-bottom: 80px;
-  object-fit: cover;
+}
+
+.image1::after,
+.image2::after,
+.image3::after {
+  content: '';
+  position: absolute;
+  height: 1px;
+  left: 0;
+  background-color: #8bbfeb;
+  box-shadow: 0 0 16px 8px #c4036d;
+  opacity: 0;
+}
+
+.image1::after {
+  top: 0;
+  animation: 6s scan 5s infinite;
+}
+
+.image2::after {
+  bottom: 0;
+  animation: 6s scan 8s infinite;
+}
+
+.image3::after{
+  top: 0;
+  animation: 6s scan 1s infinite;
+}
+
+@keyframes scan {
+  0% {
+    opacity: 0;
+    left: 0;
+  }
+  60%{
+    opacity: 0;
+    left: 0;
+  }
+  91% {
+    opacity: 1;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+.img-portfolio {
+  background-color: #eee;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border: 1px solid #9c009c;
+  box-shadow: 0 0 12px 4px #9c005686;
+  border-radius: 4px;
+}
+
+.cover {
+  color: transparent;
+  background-color: #00000046;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  cursor: pointer;
+
+  transition: 0.5s;
+}
+
+.image:hover .cover {
+  background: none;
 }
 
 figcaption {
   font-family: 'Fugaz One', sans-serif;
   font-size: 1.5em;
-  color: #2196F3;
+  color: #339ef7;
+  /* color: #2196F3; */
   text-transform: uppercase;
   text-shadow: 2px 2px 5px black;
+  margin-bottom: 0.2em;
 }
 
 /* SOBRE */
@@ -273,7 +347,7 @@ figcaption {
     opacity: 0;
   }
   30% {
-    opacity: 0.2;
+    opacity: 0.25;
   }
   40% {
     opacity: 0;
@@ -293,7 +367,7 @@ figcaption {
 
 p {
   color: #2196F3;
-  text-shadow: 0 0 1px #2195f3;
+  text-shadow: 0 0 3px #2195f3cc;
   font-size: 1.5em;
   margin-bottom: 0.5em;
 }
