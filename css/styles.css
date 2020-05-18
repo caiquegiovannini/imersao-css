@@ -16,9 +16,15 @@ body {
 }
 
 .container--about {
-  max-width: 755;
+  max-width: 755px;
   background-color: #111111c4;
-  padding: 3em;
+  padding: 2em;
+}
+
+.container--contact {
+  max-width: 755px;
+  background-color: #111111;
+  padding: 2em;
 }
 
 .background-grid {
@@ -119,11 +125,7 @@ a {
   z-index: -1;
 }
 
-@media (min-width: 375px) {
-  .logo::after {
-    margin-left: -30px;
-  }
-}
+
 
 .titles {
   position: relative;
@@ -227,45 +229,24 @@ figcaption {
   text-shadow: 2px 2px 5px black;
 }
 
-@media (min-width: 640px) {
-  .portfolio {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 50px;
-    height: 100vh;
-  }
-
-  .logo::after,
-  .titles {
-    font-size: 1.2em;
-  }
-
-  .img-portfolio {
-    margin: 0;
-  }
-}
-
-@media (min-width: 1130px) {
-  .portfolio {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 50px;
-  }
-} 
-
 /* SOBRE */
 .about {
   background-color: #111111;
   background-image: url('../img/mini-grid.png');
   background-size: contain;
   background-blend-mode: color-dodge;
-  padding: 5em 2em 5em 2em;
+  padding: 5em auto 5em auto;
   min-height: 100vh;
+  position: relative;
 }
 
-.about h2 {
+.about h2,
+.contact h2 {
   font-size: 2em;
   color: #2196F3;
   text-transform: uppercase;
   margin-bottom: 50px;
+  text-shadow: 0 0 4px #2196F3;
 }
 
 .about .profile {
@@ -312,6 +293,7 @@ figcaption {
 
 p {
   color: #2196F3;
+  text-shadow: 0 0 1px #2195f3;
   font-size: 1.5em;
   margin-bottom: 0.5em;
 }
@@ -329,7 +311,7 @@ p {
 .status::before {
   content: '';
   position: absolute;
-  background-color: green;
+  background-color: rgb(1, 153, 1);
   left: 0;
   top: 8px;
   width: 13px;
@@ -344,7 +326,74 @@ p {
   }
   to {
     font-weight: bold;
-    color: #0d8f88
+    color: #0d8f88;
+    text-shadow: 0 0 2px #0d8a83;
+  }
+}
+
+.call {
+  margin-top: 2em;
+  text-align: right;
+}
+
+.call a {
+  font-weight: bold;
+  font-size: 1em;
+  text-shadow: none;
+  text-shadow: 0 0 4px #ca027783;
+}
+
+/* CONTATO */
+.contact {
+  min-height: 100vh;
+  background-color: #111111;
+}
+
+.icons {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  margin-top: 5em;
+}
+
+.icons a {
+  color: #0d8f88;
+  font-size: 6em;
+  margin-bottom: 0.5em;
+  position: relative;
+}
+
+.icons a::after {
+  content: '[ ]';
+  opacity: 0;
+  font-size: 1.7em;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  bottom: 28px;
+
+  transition: .4s;
+}
+
+.icons a:active i,
+.icons a:hover i {
+  color: #2196F3;
+  text-shadow: 0 0 4px #2196F3;
+}
+
+.icons a:active::after,
+.icons a:hover::after {
+  opacity: 0.5;
+  font-size: 1.3em;
+  bottom: 14px;
+  text-shadow: 0 0 5px #0d8f88;
+}
+
+/* RESPONSIVIDADE */
+@media (min-width: 375px) {
+  .logo::after {
+    margin-left: -30px;
   }
 }
 
@@ -356,9 +405,69 @@ p {
   }
 }
 
+@media (min-width: 640px) {
+  .container--contact,
+  .container--about {
+    max-width: 755px;
+    padding: 3em;
+  }
+
+  .portfolio {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 50px;
+    height: 100vh;
+  }
+
+  .logo::after,
+  .titles {
+    font-size: 1.2em;
+  }
+
+  .img-portfolio {
+    margin: 0;
+  }
+
+  .about {
+    padding-left: 2em;
+    padding-right: 2em;
+  }
+
+  .icons {
+    height: 50vh;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  .icons a {
+    width: 100%;
+  }
+
+  .icons a::after {
+    opacity: 0;
+    font-size: 0.9em;
+    bottom: 2px;
+    transform: scale(1.5);
+  }
+
+  .icons a:active::after,
+  .icons a:hover::after {
+    font-size: 1.1em;
+    bottom: 6px;
+    transform: scale(1);
+  }
+}
+
 @media (min-width: 660px) {
   .about .profile {
     width: 230px;
     height: 300px;
   }
 }
+
+@media (min-width: 1130px) {
+  .portfolio {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 50px;
+  }
+} 
