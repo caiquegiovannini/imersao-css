@@ -11,7 +11,8 @@
 </head>
 <body>
 
-  <header>
+  <div class="background-grid">
+    <header>
     <nav class="menu">
       <ul>
         <li><a href="#portfolio">Portfólio</a></li>
@@ -27,7 +28,7 @@
     </div>
     </header>
 
-    <section class="portfolio" id="portfolio">
+    <section class="portfolio container" id="portfolio">
       <figure>
         <figcaption>Back-end</figcaption>
         <img class="img-portfolio" src="./img/backend.jpg" alt="">
@@ -43,15 +44,17 @@
         <img class="img-portfolio" src="./img/website.jpeg" alt="">
       </figure>
     </section>
+  </div>
 
-    <section class="about container" id="about">
-      <h2>Ficha Técnica</h2>
-      
-      <figure class="profile">
-        <img src="./img/IMG-20160730-WA0004.jpg" alt="Caique Giovannini">
-      </figure>
-      
-      <div class="info">
+    <section class="about" id="about">
+      <div class="container container--about">
+        
+        <h2>Ficha Técnica</h2>
+        
+        <figure class="profile">
+          <img src="./img/IMG-20160730-WA0004.jpg" alt="Caique Giovannini">
+        </figure>
+        
         <p>
           <span class="name">ID:</span>
           #38c562
@@ -74,11 +77,15 @@
           - Backend: Node.js, Express, Postgres.
         </p>
         <p>
+          <span class="name">Visto por último em:</span>
+          São Paulo, Brasil
+        </p>
+        <p>
           <span class="name">Status:</span> 
           <span class="status">Disponível</span>
         </p>
+      
       </div>
-
     </section>
   
 </body>

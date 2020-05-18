@@ -5,20 +5,28 @@
 }
 
 body {
-  background-image: url('../img/grid.gif');
-  background-repeat: no-repeat;
-  background-size: 100% 100%;
-  background-position: center;
-  background-attachment: fixed;
-
   font-family: 'Share Tech Mono', monospace;
   height: 100vh;
   width: 100%;
 }
 
 .container {
-  max-width: 950px;
-  margin: auto;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.container--about {
+  max-width: 755;
+  background-color: #111111c4;
+  padding: 3em;
+}
+
+.background-grid {
+  background-image: url('../img/grid.gif');
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-position: center;
+  background-attachment: fixed;
 }
 
 header {
@@ -27,7 +35,7 @@ header {
   height: 50vh;
   justify-content: center;
   flex-wrap: wrap;
-  margin-top: 10px;
+  padding-top: 10px;
 }
 
 .menu {
@@ -54,6 +62,7 @@ header {
   font-weight: bold;
   text-transform: uppercase;
   font-family: 'Fugaz One', sans-serif;
+  background: none;
 }
 
 .menu li:active a,
@@ -94,6 +103,7 @@ a {
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 0;
 }
 
 .logo::after {
@@ -221,6 +231,7 @@ figcaption {
   .portfolio {
     grid-template-columns: repeat(2, 1fr);
     gap: 50px;
+    height: 100vh;
   }
 
   .logo::after,
@@ -243,8 +254,11 @@ figcaption {
 /* SOBRE */
 .about {
   background-color: #111111;
+  background-image: url('../img/mini-grid.png');
+  background-size: contain;
+  background-blend-mode: color-dodge;
   padding: 5em 2em 5em 2em;
-  height: 100vh;
+  min-height: 100vh;
 }
 
 .about h2 {
@@ -255,11 +269,34 @@ figcaption {
 }
 
 .about .profile {
-  width: 175px;
+  width: 190px;
   height: 236px;
-  float: left;
-  margin-right: 2em;
+  margin: 0 auto 2em auto;
   position: relative;
+}
+
+.about .profile::after {
+  content: '';
+  background-image: url('../img/mini-grid.png');
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  position: absolute;
+  animation: miniGrid ease 4s infinite;
+}
+
+@keyframes miniGrid {
+  0% {
+    opacity: 0;
+  }
+  30% {
+    opacity: 0.2;
+  }
+  40% {
+    opacity: 0;
+  }
 }
 
 .about .profile img {
@@ -276,7 +313,7 @@ figcaption {
 p {
   color: #2196F3;
   font-size: 1.5em;
-  margin-bottom: 0.2em;
+  margin-bottom: 0.5em;
 }
 
 .skill {
@@ -284,7 +321,21 @@ p {
 }
 
 .status {
+  position: relative;
+  padding-left: 30px;
   animation: 1.5s status infinite;
+}
+
+.status::before {
+  content: '';
+  position: absolute;
+  background-color: green;
+  left: 0;
+  top: 8px;
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  box-shadow: 0 0 10px 1px rgba(0, 250, 28, 0.72);
 }
 
 @keyframes status {
@@ -297,7 +348,17 @@ p {
   }
 }
 
-@media (min-width: 662px) {
+@media (min-width: 453px) {
+  .about .profile {
+    float: left;
+    margin-right: 2em;
+    margin-bottom: 1.7em;
+  }
+}
 
-
+@media (min-width: 660px) {
+  .about .profile {
+    width: 230px;
+    height: 300px;
+  }
 }
